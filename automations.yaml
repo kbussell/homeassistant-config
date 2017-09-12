@@ -1,0 +1,24 @@
+- action:
+  - alias: Turn on front porch light
+    data:
+      entity_id: switch.front_porch_switch
+    service: switch.turn_on
+  alias: Porch light on at sunset
+  condition: []
+  id: '1505220329128'
+  trigger:
+  - event: sunset
+    offset: -01:00:00
+    platform: sun
+- action:
+  - alias: Turn porch light off
+    data:
+      entity_id: switch.front_porch_switch
+    service: switch.turn_off
+  alias: Porch light off at sunrise
+  condition: []
+  id: '1505220459006'
+  trigger:
+  - event: sunrise
+    offset: +0:30:00
+    platform: sun
