@@ -1,0 +1,19 @@
+# When the ring doorbell is rung, play a chime
+#
+- alias: Play chime when doorbell is rung
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      from: 'off'
+      to: 'on'
+
+  action:
+    - service:  media_player.play_media
+      data:
+        entity_id: media_player.announce_speaker
+        #media_content_id: https://hass.chezbarry.com/local/media/doorbell.wav
+        media_content_id: http://192.168.10.20:8123/local/media/doorbell.wav
+        media_content_type: audio/wav
+    - service: notify.livingroom_tv
+      data:
+        message: "Someone rang the doorbell!"

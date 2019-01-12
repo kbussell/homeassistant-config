@@ -1,0 +1,11 @@
+- platform: darksky
+  api_key: !secret darksky_key
+  monitored_conditions:
+    - summary
+    - precip_type
+    - precip_intensity
+    - precip_intensity_max
+    - temperature
+    - minutely_summary
+    - sunrise_time
+    - sunset_time

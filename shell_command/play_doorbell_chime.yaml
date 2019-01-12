@@ -1,0 +1,1 @@
+alarm_sound_doorchime: 'play --volume 5 /home/homeassistant/.homeassistant/media/doorbell.wav'

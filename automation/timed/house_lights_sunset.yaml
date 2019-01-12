@@ -1,0 +1,11 @@
+# Turn on some lights at sunset so the house isn't dark 
+#
+- alias: Inside lights on at sunset A
+  trigger:
+    - event: sunset
+      offset: 00:00:00
+      platform: sun
+
+  action:
+    - service: script.turn_on
+      entity_id: script.house_lights_on

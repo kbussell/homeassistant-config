@@ -1,0 +1,13 @@
+# Tell us to put the chickens away at sunset
+#
+- alias: Chicken reminder at sunset
+  trigger:
+    - event: sunset
+      offset: 00:00:00
+      platform: sun
+
+  action:
+    - service: tts.amazon_polly_say
+      data_template:
+        entity_id: media_player.announce_speaker
+        message: 'Time to put the chickens away!'

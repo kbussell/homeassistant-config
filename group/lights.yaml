@@ -1,0 +1,47 @@
+Kitchen Lights:
+  entities:
+    - light.kitchen_level
+    - light.kitchen_pendant_level
+    - switch.kitchen_counter_switch
+
+Dining Room Lights:
+  entities:
+    - light.dining_room_level
+    - light.dining_room_chandelier_level
+
+Living Room Lights:
+  entities:
+    - light.living_level
+
+Common Bathroom Lights:
+  entities:
+    - light.common_bathroom_sconce_level
+    - switch.common_bathroom_switch
+
+Guest Bedroom Lights:
+  entities:
+    - light.guest_bedroom_level
+    - light.guest_bedroom_chandelier_level
+
+Office Lights:
+  entities:
+    - light.office_level
+    - light.office_chandelier_level
+
+Guest Bathroom Lights:
+  entities:
+    - light.guest_bathroom_sconce_level
+    - switch.guest_bathroom_switch
+    - switch.guest_bathroom_toilet_switch
+
+Master Bedroom Lights:
+  entities:
+    - light.master_bedroom_chandelier_level
+    - light.master_bedroom_level
+    - switch.master_bedroom_closet_switch
+
+Master Bathroom Lights:
+  entities:
+    - light.master_bathroom_sconce_level
+    - light.master_bathroom_chandelier_level
+    - switch.master_bathroom_switch

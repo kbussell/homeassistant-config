@@ -1,0 +1,4 @@
+Triggers:
+  control: hidden
+  entities:
+    - input_boolean.good_night

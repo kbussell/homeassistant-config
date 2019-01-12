@@ -1,0 +1,13 @@
+# 30 minutes after sunrise, turn off the porch lights
+#
+- alias: Porch light off at sunrise
+  trigger:
+    - event: sunrise
+      offset: +0:30:00
+      platform: sun
+
+  action:
+    - alias: Turn porch light off
+      data:
+        entity_id: switch.front_porch_switch
+      service: switch.turn_off

@@ -1,0 +1,25 @@
+# Turn on some interior house lights
+#
+house_lights_on:
+  alias: Turns assorted house lights on
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_level
+        brightness_pct: 50
+    - service: light.turn_on
+      data:
+        entity_id: light.dining_room_chandelier_level
+        brightness_pct: 50
+    - delay:
+        minutes: 1
+    - service: light.turn_on
+      data:
+        entity_id: light.office_level
+        brightness_pct: 50
+    - delay:
+        minutes: 1
+    - service: light.turn_on
+      data:
+        entity_id: light.guest_bedroom_level
+        brightness_pct: 50

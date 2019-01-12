@@ -1,0 +1,43 @@
+group.kitchen_lights:
+  friendly_name: 'Kitchen Lights'
+  hidden: false
+
+group.dining_room_lights:
+  friendly_name: 'Dining Room Lights'
+  hidden: false
+
+group.living_room_lights:
+  friendly_name: 'Living Room Lights'
+  hidden: false
+
+group.common_bathroom_lights:
+  friendly_name: 'Common Bathroom Lights'
+  hidden: false
+
+group.guest_bedroom_lights:
+  friendly_name: 'Guest Bedroom Lights'
+  hidden: false
+
+group.office_lights:
+  friendly_name: 'Office Lights'
+  hidden: false
+
+group.guest_bathroom_lights:
+  friendly_name: 'Guest Bathroom Lights'
+  hidden: false
+
+group.master_bedroom_lights:
+  friendly_name: 'Master Bedroom Lights'
+  hidden: false
+
+group.master_bathroom_lights:
+  friendly_name: 'Master Bathroom Lights'
+  hidden: false
+
+group.interior_lights:
+  friendly_name: 'Interior Lights'
+  hidden: false
+
+group.exterior_lights:
+  friendly_name: 'Exterior Lights'
+  hidden: false

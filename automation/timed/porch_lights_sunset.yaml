@@ -1,0 +1,13 @@
+# An hour before sunset, turn on porch light
+#
+- alias: Porch light on at sunset
+  trigger:
+    - event: sunset
+      offset: -01:00:00
+      platform: sun
+
+  action:
+    - alias: Turn on front porch light
+      data:
+        entity_id: switch.front_porch_switch
+      service: switch.turn_on

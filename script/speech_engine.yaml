@@ -1,0 +1,13 @@
+speech_engine:
+  sequence:
+    - service: script.speech_processing
+      data_template:
+        media_player: media_player.announce_speaker
+
+      speech_message: >-
+        {% if value1 is not none %}
+          {{ value1 }}
+        {% else %}
+          Hello! Have a nice day!
+        {% endif %}
+

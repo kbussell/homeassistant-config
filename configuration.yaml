@@ -11,22 +11,27 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
   # Customization file
-  customize: !include customize.yaml
-
-# Show links to resources in log and frontend
-introduction:
+  customize: !include_dir_merge_named customize
+  customize_domain: !include customize_domain.yaml
 
 # Enables the frontend
 frontend:
+
+# Enable HA Cloud
+cloud:
 
 # Enables configuration UI
 config:
 
 http:
-  # Uncomment this to add a password (recommended!)
-  # api_password: PASSWORD
+  api_password: !secret hass_api_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  base_url: https://hass.chezbarry.com
+  ip_ban_enabled: True
+  login_attempts_threshold: 10 
+  trusted_proxies:
+    - 172.18.1.15
+  use_x_forwarded_for: True
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -40,30 +45,116 @@ updater:
 # Discover some devices automatically
 discovery:
 
+#camera:
+#  - platform: uvc
+#    nvr: eyes.chezbarry.com
+#    key: !secret unifi_nvr_api_key
+#    port: 7443
+
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
+
+cast:
+  #  media_player:
+  #- host: chromecast-announce.chezbarry.com
+  #- host: chromecast-ceiling.chezbarry.com
 
 # Enables support for tracking state changes over time
 history:
 
+logger:
+  default: warn
+  logs:
+    homeassistant.components.media_player: debug
+    homeassistant.components.tts: debug
+
 # View all events in a logbook
 logbook:
+
+media_extractor:
+
+# Media player
+media_player:
+  - platform: pandora
+  - platform: webostv
+    host: 172.18.1.110
+    name: Living Room TV
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: '38:8C:50:68:6F:4E'
+
+# MQTT
+#mqtt:
+#  broker: "docker.chezbarry.com"
+
+# Notify
+notify:
+  - platform: webostv
+    host: 172.18.1.110
+    name: livingroom_tv
+    filename: webostv.conf
+
+  #alarm_control_panel: 
+  #- platform: nx584
+
+ring:
+  username: kbussell@gmail.com
+  password: !secret ring_kbussell_password
+
+binary_sensor:
+  #- platform: nx584
+  #  zone_types:
+  #    1: opening
+  #    2: opening
+  #    3: motion
+  #    4: motion
+  #    5: opening
+  #    6: opening
+  #    7: opening
+  #    8: opening
+  #    9: opening
+  #    10: opening
+  #    11: opening
+  #    12: opening
+  #    13: opening
+  #    14: opening
+  #    15: opening
+  #    16: opening
+  #    17: opening
+  #    18: opening
+  #    19: opening
+  #    20: opening
+  - platform: ring
+    monitored_conditions:
+      - ding
+
+#influxdb:
+#  host: docker.chezbarry.com
 
 # Track the sun
 sun:
 
-# Weather prediction
-sensor:
-  - platform: yr
-
 # Text to speech
 tts:
-  - platform: google
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+    base_url: http://192.168.10.20:8123
+    region_name: 'us-west-2'
+    voice: Amy
 
 zwave:
   usb_path: /dev/zwave
+  device_config: !include zwave_device_config.yaml
   network_key: !secret zwave_network_key
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+group: !include_dir_merge_named group
+device_tracker: !include_dir_merge_named device_tracker
+sensor: !include_dir_merge_named sensor
+automation: !include_dir_merge_named automation
+scene: !include_dir_merge_named scene
+switch: !include_dir_merge_named switch
+script: !include_dir_merge_named script
+input_boolean: !include_dir_merge_named input_boolean
+shell_command: !include_dir_merge_named shell_command

@@ -1,0 +1,7 @@
+- platform: unifi
+  username: homeassistant
+  password: !secret unifi_ha_password
+  host: unifi.chezbarry.com
+  verify_ssl: False
+  track_new_devices: False
+  consider_home: 30

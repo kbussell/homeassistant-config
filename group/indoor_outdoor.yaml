@@ -1,0 +1,19 @@
+Interior Lights:
+  entities:
+    - group.kitchen_lights
+    - group.dining_room_lights
+    - group.living_room_lights
+    - light.hallway_level
+    - group.common_bathroom_lights
+    - group.guest_bedroom_lights
+    - group.office_lights
+    - group.guest_bathroom_lights
+    - group.master_bedroom_lights
+    - group.master_bathroom_lights
+
+Exterior Lights:
+  entities:
+    - switch.front_porch_switch
+    - switch.south_walkway_switch
+    - switch.back_porch_switch
+    - switch.backyard_north_switch

@@ -1,0 +1,7 @@
+# Turn off all interior lights
+#
+interior_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id:
+        - group.interior_lights

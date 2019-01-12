@@ -1,0 +1,5 @@
+input_boolean.good_night:
+  friendly_name: 'Good Night'
+
+  hidden: false
+  icon: mdi:weather-night

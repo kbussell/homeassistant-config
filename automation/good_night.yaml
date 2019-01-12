@@ -1,0 +1,25 @@
+# Good night routine
+#
+- alias: 'Good Night Trigger'
+  trigger:
+    - event_data:
+        scene_id: 2
+        scene_data: 4
+      event_type: zwave.scene_activated
+      platform: event
+
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.good_night
+
+    - service: script.speech_engine
+      data_template:
+        value1: 'Shutting off all the lights in 20 seconds'
+
+    - delay: 00:00:20
+
+    - service: script.interior_off
+
+    - service: script.speech_engine
+      data_template:
+        value1: 'Goodnight! Powering down'
