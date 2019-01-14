@@ -150,11 +150,11 @@ zwave:
   network_key: !secret zwave_network_key
 
 group: !include_dir_merge_named group
-device_tracker: !include_dir_merge_named device_tracker
-sensor: !include_dir_merge_named sensor
-automation: !include_dir_merge_named automation
-scene: !include_dir_merge_named scene
-switch: !include_dir_merge_named switch
+device_tracker: !include_dir_merge_list device_tracker
+sensor: !include_dir_merge_list sensor
+automation: !include_dir_merge_list automation
+scene: !include_dir_merge_list scene
+switch: !include_dir_merge_list switch
 script: !include_dir_merge_named script
 input_boolean: !include_dir_merge_named input_boolean
 shell_command: !include_dir_merge_named shell_command
