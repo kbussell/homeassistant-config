@@ -1,0 +1,3 @@
+script.speech_engine:
+  friendly_name: 'Voice Notify'
+  hidden: false

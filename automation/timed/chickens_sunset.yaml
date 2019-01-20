@@ -7,7 +7,6 @@
       platform: sun
 
   action:
-    - service: tts.amazon_polly_say
+    - service: script.speech_engine
       data_template:
-        entity_id: media_player.announce_speaker
-        message: 'Time to put the chickens away!'
+        value1: 'Time to put the chickens away!'

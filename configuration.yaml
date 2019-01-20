@@ -24,9 +24,9 @@ cloud:
 config:
 
 http:
-  api_password: !secret hass_api_password
+  #api_password: !secret hass_api_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: https://hass.chezbarry.com
+  #base_url: https://hass.chezbarry.com
   ip_ban_enabled: True
   login_attempts_threshold: 10 
   trusted_proxies:
@@ -55,9 +55,6 @@ discovery:
 conversation:
 
 cast:
-  #  media_player:
-  #- host: chromecast-announce.chezbarry.com
-  #- host: chromecast-ceiling.chezbarry.com
 
 # Enables support for tracking state changes over time
 history:
